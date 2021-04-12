@@ -1,0 +1,58 @@
+<div class="row">
+    <!-- <app-dish class="col-lg-4 col-md-6 mb-4"></app-dish>
+    <app-dish class="col-lg-4 col-md-6 mb-4"></app-dish>
+    <app-dish class="col-lg-4 col-md-6 mb-4"></app-dish> -->
+    <div class="col-lg-4 col-md-6 mb-4" *ngFor="let dish of dishs">
+
+        <div class="card h-100">
+            <a href="#"><img class="card-img-top" [src]="dish.img" alt=""></a>
+            <div class="card-body">
+                <h4 class="card-title">
+                    <a href="#">{{dish.name}}</a>
+                </h4>
+                <h5>${{dish.price}}</h5>
+                <p class="card-text">{{dish.desc}}</p>
+            </div>
+            <div class="card-footer">
+                <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+                <button class="btn btn-primary d-block w-100 btn-lg" routerLink="/dish/{{dish.id}}">show</button>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Dish Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Images</th>
+            <th scope="col">Desc</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">
+                <p *ngIf="selected">{{selected.id}}</p>
+            </th>
+            <td scope="row">
+                <p *ngIf="selected">{{selected.name}}</p>
+            </td>
+            <td scope="row">
+                <p *ngIf="selected">{{selected.price}}</p>
+            </td>
+            <td scope="row">
+                <p *ngIf="selected"><img style="width: 80px; height: 80px;" src="{{selected.img}}" alt=""></p>
+            </td>
+            <td scope="row">
+                <p *ngIf="selected">{{selected.desc}}</p>
+            </td>
+            <!-- <td> <button class="btn btn-primary d-block w-100 btn-lg" (click)="removeItem(selected.id)">Delete</button></td> -->
+        </tr>
+
+    </tbody>
+</table>

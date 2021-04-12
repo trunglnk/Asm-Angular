@@ -1,0 +1,31 @@
+<form name="form" [formGroup]="form">
+    <div class="form-group">
+        <label for="">Name</label>
+        <input type="text" class="form-control" formControlName="name" id="name" [(ngModel)]="dish.name" [ngClass]="{'is-invalid':form.get('name').touched && form.get('name').invalid}" required placeholder="nhập tên sản phẩm">
+        <div class="invalid-feedback">
+            <div>Tên món ăn không được để trống</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Price</label>
+        <input type="number" min="0" class="form-control" formControlName="price" id="price" [(ngModel)]="dish.price" [ngClass]="{'is-invalid':form.get('price').touched && form.get('price').invalid}" required placeholder="nhập giá " />
+        <div class="invalid-feedback">
+            <div>giá món ăn không để trống</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">photo</label>
+        <input type="text" class="form-control" formControlName="img" id="img" [(ngModel)]="dish.img" [ngClass]="{'is-invalid':form.get('img').touched && form.get('img').invalid}" required placeholder="Nhập link ảnh" />
+        <div class="invalid-feedback">
+            <div>Ảnh không được để trống</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="">Desc</label>
+        <input type="text" class="form-control" formControlName="desc" id="desc" [(ngModel)]="dish.desc" [ngClass]="{'is-invalid':form.get('desc').touched && form.get('desc').invalid}" required placeholder="nhập mô tả món ăn" />
+        <div class="invalid-feedback">
+            <div>Mô tả món ăn không được để trống</div>
+        </div>
+    </div>
+    <button class="btn btn-primary" (click)="addDish()" [disabled]="!form.valid">Add</button>
+</form>
